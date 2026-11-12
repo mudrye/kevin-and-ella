@@ -17,11 +17,7 @@
   }
 
   KE.monogram = function (h) {
-    return '<svg role="img" aria-label="K+E monogram" viewBox="860 50 440 800" height="' + h + '" style="display:block;overflow:visible">' +
-      '<defs><filter id="sk1" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="4"/></filter>' +
-      '<filter id="sk2" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".07" numOctaves="2" seed="9"/><feDisplacementMap in="SourceGraphic" scale="4"/></filter></defs>' +
-      '<g filter="url(#sk1)" fill="none" stroke="#E5593C" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"><path d="M1085 118C1060 66 990 82 975 150C962 205 1000 235 995 262M995 262C930 275 895 320 905 400C915 470 990 520 1050 490C1090 475 1105 450 1115 425M1135 185L1068 350L1160 302C1192 312 1197 360 1196 450L1190 690C1190 760 1215 810 1282 826"/></g>' +
-      '<g filter="url(#sk2)" fill="none" stroke="#E5593C" stroke-width="8" stroke-linecap="round" opacity=".85"><path d="M1078 112C1050 62 985 78 968 150M902 405C912 478 990 528 1058 498M1188 690C1188 768 1214 818 1276 836"/></g></svg>';
+    return '<img src="img/monogram.svg" alt="K+E monogram" height="' + h + '" style="display:block;height:' + h + 'px;width:auto">';
   };
 
   var links = [
