@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RSVP · Kevin &amp; Ella</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,wght@0,400;0,600;1,400&family=Reenie+Beanie&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<style>
+.wrap{display:flex;justify-content:center;padding:56px 6% 0}
+.box{flex:1 1 460px;max-width:720px;background:var(--paper);border:4px solid var(--orange);border-radius:40px;padding:40px}
+.lbl{display:block;font:600 20px Fraunces,Georgia,serif;margin-bottom:6px}
+.findrow{display:flex;flex-wrap:wrap;gap:12px}
+.findrow .field{flex:1 1 240px}
+.findrow button{font-size:26px;padding:10px 30px}
+#found{border-top:3px dashed var(--orange);margin-top:26px;padding-top:22px}
+.person{border:4px solid var(--pink);border-radius:28px;padding:18px 22px;margin:0 0 16px}
+.person.extra{border-style:dashed;border-color:var(--lime)}
+.person legend{font-size:34px;padding:0 6px}
+.choices{margin:10px 0}
+.choices label{display:inline-block;cursor:pointer;margin:0 8px 8px 0}
+.choices input{position:absolute;opacity:0}
+.choices span{display:inline-block;border:3px solid var(--green);border-radius:99px;padding:8px 18px}
+.choices input:checked+span{background:var(--green);color:var(--paper)}
+.choices .no input:checked+span{background:var(--red);border-color:var(--red)}
+.choices input:focus-visible+span{outline:3px solid var(--red);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+button[disabled]{opacity:.6;cursor:wait}
+@media (max-width:640px){.box{padding:26px 20px}}
+</style>
+</head>
+<body data-page="rsvp">
+<header id="topbar"></header>
+<main>
+  <header class="page-head bg-orange"><div class="script kicker">will you come party with us?</div><h1 class="display">RSVP</h1></header>
+  <section class="wrap">
+    <div class="box">
+      <form id="find">
+        <label class="lbl" for="q">Find your invitation</label>
+        <div class="findrow">
+          <input class="field" id="q" autocomplete="name" placeholder="Type your full name" required minlength="3">
+          <button class="btn dark" id="findbtn" type="submit">find me</button>
+        </div>
+      </form>
+      <div class="script note" id="notfound" hidden>hmm, we can't find that name. try the name on your invitation, or text us!</div>
+      <div class="script note" id="err" hidden role="alert"></div>
+
+      <form id="reply" hidden>
+        <div id="found" hidden>
+          <div class="script" id="greeting" style="font-size:54px;line-height:1;color:var(--red);transform:rotate(-2deg)"></div>
+          <div id="addl" style="font:italic 22px/1.35 Fraunces,Georgia,serif;margin:8px 0 20px"></div>
+          <div id="people"></div>
+          <label class="lbl" style="margin-top:4px">Email
+            <input class="field" type="email" id="email" autocomplete="email" placeholder="you@email.com" style="margin-top:6px">
+          </label>
+          <label class="lbl" style="margin:18px 0 22px">Note for the couple
+            <textarea class="field" id="note" placeholder="Say something nice or silly" style="margin-top:6px"></textarea>
+          </label>
+          <button class="btn" id="send" type="submit">SEND IT</button>
+          <div class="script note" id="need" hidden role="alert">please pick accepts or declines for everyone listed.</div>
+          <div class="script note" id="saved" hidden role="status">saved! search your name again any time to change your answers.</div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+<footer id="foot"></footer>
+<script src="js/site.js"></script>
+<script src="js/rsvp.js"></script>
+<script>
+// show the reply form whenever the "found" block is shown
+new MutationObserver(function () { document.getElementById('reply').hidden = document.getElementById('found').hidden; })
+  .observe(document.getElementById('found'), { attributes: true, attributeFilter: ['hidden'] });
+</script>
+</body>
+</html>

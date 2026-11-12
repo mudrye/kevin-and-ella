@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The big day · Kevin &amp; Ella</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,wght@0,400;0,600;1,400&family=Reenie+Beanie&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<style>
+.day{display:flex;flex-wrap:wrap;justify-content:center;align-items:stretch;gap:30px 3%;padding:56px 4% 10px}
+.doodles{flex:1 1 220px;max-width:340px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:40px;padding:10px 0}
+.doodles img{display:block;height:auto;max-width:100%}
+.center{flex:1 1 560px;max-width:680px;text-align:center}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;border:4px solid;border-radius:999px;padding:18px 40px;margin-bottom:22px}
+.row .t{font:34px "Instrument Serif",Georgia,serif;color:var(--red)}
+.row .w{font:italic 32px Fraunces,Georgia,serif;flex:1 1 160px}
+.swatches{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.swatches i{width:30px;height:30px;border-radius:50%;border:2px solid var(--paper);display:inline-block}
+@media (max-width:900px){.doodles{flex-direction:row;flex-wrap:wrap;justify-content:center;max-width:none}.doodles img{max-width:40%}}
+</style>
+</head>
+<body data-page="bigday">
+<header id="topbar"></header>
+<main>
+  <header class="page-head"><div class="script kicker">details, details</div><h1 class="display">The big day</h1></header>
+
+  <section class="day">
+    <div class="doodles">
+      <img src="img/venue-sketch.png" alt="Pen sketch of the Rocky Hill venue: a timber hall surrounded by tall evergreens" style="width:100%;max-width:330px">
+      <img src="img/doodle-pine.png" alt="Pen doodle of a pine tree" style="width:150px;transform:rotate(-2deg)">
+      <img src="img/doodle-sunrise.png" alt="Pen doodle of a sunrise" style="width:210px">
+    </div>
+
+    <div class="center">
+      <div class="script" style="font-size:44px;color:var(--red);transform:rotate(-2deg);margin-bottom:22px">rocky hill · white salmon, WA</div>
+      <div class="row" style="border-color:var(--orange)"><span class="t">[TIME]</span><span class="w">Ceremony</span></div>
+      <div class="row" style="border-color:var(--pink)"><span class="t">[TIME]</span><span class="w">Cocktails</span></div>
+      <div class="row" style="border-color:var(--lime)"><span class="t">[TIME]</span><span class="w">Dinner</span></div>
+      <div class="row" style="border-color:var(--red)"><span class="t">[TIME]</span><span class="w">Dancing</span></div>
+
+      <div style="margin-top:34px;text-align:left">
+        <div class="block bg-pink"><h3>where to stay</h3><p>[Hotel block and booking details.]</p></div>
+        <div class="block bg-orange"><h3>getting there</h3><p>Rocky Hill, 24 BZ Glenwood Hwy., White Salmon, WA. [Airport, parking and shuttle details.]</p></div>
+        <div class="block bg-red"><h3>dress code</h3><p>[DRESS CODE]</p>
+          <div class="swatches" aria-label="Wedding colors"><i style="background:#F2B5D0"></i><i style="background:#BFC94B"></i><i style="background:#EDA23F"></i><i style="background:#E5593C"></i><i style="background:#1F4A2A"></i><i style="background:#F4EAD2"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doodles">
+      <img src="img/doodle-sunglasses.png" alt="Pen doodle of sunglasses" style="width:170px;transform:rotate(3deg)">
+      <img src="img/just-married-van.jpg" alt="Watercolor sketch of a just-married van with surfboards and tin cans" style="width:200px;mix-blend-mode:multiply">
+      <img src="img/doodle-fish.png" alt="Pen doodle of a fish" style="width:110px;transform:rotate(3deg)">
+    </div>
+  </section>
+</main>
+<footer id="foot"></footer>
+<script src="js/site.js"></script>
+<script>
+// Hide any drawing that hasn't been added to img/ yet.
+document.querySelectorAll('.doodles img').forEach(function (im) {
+  im.addEventListener('error', function () { im.style.display = 'none'; });
+  if (im.complete && !im.naturalWidth) im.style.display = 'none';
+});
+</script>
+</body>
+</html>

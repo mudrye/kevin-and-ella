@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kevin &amp; Ella</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,wght@0,400;0,600;1,400&family=Reenie+Beanie&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<style>
+.gate{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--green) url(img/hero.jpg) center/cover}
+.card{position:relative;background:var(--pink);width:min(520px,90%);padding:40px 44px 46px;margin:60px 0}
+.card h1{font-size:clamp(44px,5.6vw,68px);color:var(--paper);margin-top:8px}
+.card .script{font-size:40px;line-height:1.1;color:var(--red);margin:18px 0 20px;transform:rotate(-1.5deg)}
+.card input{text-align:center;font-size:24px;padding:14px 24px}
+</style>
+</head>
+<body data-page="gate">
+<main class="gate">
+  <form class="card" id="gate">
+    <div style="display:flex;justify-content:center;margin-bottom:6px" id="mono"></div>
+    <h1 class="display">Kevin &amp; Ella</h1>
+    <label class="script" for="pw" style="display:block">enter the password from your invitation</label>
+    <input class="field" type="password" id="pw" autocomplete="off" placeholder="password">
+    <button class="btn dark" type="submit" style="margin-top:16px;padding:14px 52px">ENTER</button>
+    <div class="script note" id="bad" hidden>hmm, that's not it. check your invitation!</div>
+  </form>
+</main>
+<script src="js/site.js"></script>
+<script>
+document.getElementById('mono').innerHTML = KE.monogram(96);
+var next = new URLSearchParams(location.search).get('next') || 'home.html';
+if (!/^[a-z-]+\.html$/.test(next) || next === 'index.html') next = 'home.html';
+try { if (localStorage.getItem(KE.KEY) === '1') location.replace(next); } catch (e) {}
+document.getElementById('gate').addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (document.getElementById('pw').value.trim().toLowerCase() === KE.PASSWORD) {
+    try { localStorage.setItem(KE.KEY, '1'); } catch (err) {}
+    location.href = next;
+  } else {
+    document.getElementById('bad').hidden = false;
+  }
+});
+</script>
+</body>
+</html>
