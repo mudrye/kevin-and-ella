@@ -5,7 +5,7 @@ Static site hosted on GitHub Pages. RSVPs are stored in a Google Sheet via Googl
 ## Pages
 | File | Page |
 |---|---|
-| `index.html` | Password gate (password set in `js/site.js`) |
+| `index.html` | Password gate (only a hash of the password is stored, in `js/site.js`; make a new one with `tools/hash-password.html`) |
 | `home.html` | Home |
 | `story.html` | Our story |
 | `big-day.html` | The big day |
@@ -34,5 +34,5 @@ To get a CSV: open the Responses tab → File → Download → Comma-separated v
 If you ever edit `Code.gs`, use **Deploy → Manage deployments → Edit → New version** so the URL stays the same.
 
 ## A note on privacy
-GitHub Pages has no server, so the password only keeps casual visitors out — anyone determined can read it in the page source.
+GitHub Pages has no server, so the password check runs in the browser. Only a salted PBKDF2 hash is in the source, not the password, but a short or guessable password could still be cracked offline — it keeps casual visitors out, not determined ones.
 Guest names and RSVPs live only in your Google Sheet, never in this repo. Pages are marked `noindex` so search engines skip them.
