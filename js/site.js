@@ -4,7 +4,7 @@
 (function () {
   // Only a salted PBKDF2 hash of the password is stored here, never the password itself.
   // To change the password, run tools/hash-password.html in a browser and paste the result below.
-  var PW_HASH = '2ff2a1f4bd459fd899ca0b144d06a4e62b2f75acc2bd07868def8bd48b82f4e8';
+  var PW_HASH = '7b5b1ea06512fe718b269dafcabf7a9d0dcf4600041d484747a951dca70c5bfd';
   var PW_SALT = 'kevin-and-ella-2027';
   var PW_ITER = 200000;
   var KEY = 'ke-welcome';
