@@ -9,13 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,wght@0,400;0,600;1,400&family=Reenie+Beanie&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 <style>
-.chapter{display:flex;flex-wrap:wrap;gap:40px 6%;align-items:center;justify-content:center;padding:70px 6% 0}
-.chapter .text{flex:1 1 360px;max-width:520px}
-.chapter .num{font-size:54px;color:var(--red);transform:rotate(-3deg);display:inline-block}
-.chapter h2{font-size:clamp(46px,6vw,76px);margin-top:4px}
-.chapter p{font:italic 28px/1.4 Fraunces,Georgia,serif;margin:16px 0 0}
-.chapter .photo{flex:1 1 340px;max-width:440px}
-.chapter .photo.wide{flex-basis:400px;max-width:560px}
+.film{padding:70px 6% 0;display:flex;justify-content:center}
+.film .frame{width:100%;max-width:1100px;transform:rotate(-1deg)}
+.film video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:var(--green);border:6px solid var(--paper)}
+.film-cap{text-align:center;font-size:44px;color:var(--red);margin-top:34px;transform:rotate(-2deg)}
+@media (max-width:640px){.film{padding:40px 4% 0}.film .frame{padding:10px;transform:none}.film-cap{font-size:34px}}
 </style>
 </head>
 <body data-page="story">
@@ -23,25 +21,15 @@
 <main>
   <header class="page-head bg-pink"><div class="script kicker">how we got here</div><h1 class="display">Our story</h1></header>
 
-  <section class="chapter">
-    <div class="photo"><div class="frame"><div class="pic" style="aspect-ratio:4/5"><img src="img/story-1.jpg" alt="Kevin and Ella"></div></div></div>
-    <div class="text"><div class="script num">01</div><h2 class="display">how we met</h2><p>[A few lines about how Kevin and Ella met: where, when, and who said hi first.]</p></div>
+  <section class="film">
+    <div class="frame">
+      <video controls playsinline preload="metadata" poster="img/our-story-poster.jpg">
+        <source src="video/our-story.mp4" type="video/mp4">
+        Your browser can't play this video.
+      </video>
+    </div>
   </section>
-
-  <section class="chapter">
-    <div class="text"><div class="script num">02</div><h2 class="display">the first date</h2><p>[The first date, the moment you knew, or the story you always tell at parties.]</p></div>
-    <div class="photo wide"><div class="frame alt"><div class="pic" style="aspect-ratio:5/4"><img src="img/story-2.jpg" alt="Kevin and Ella"></div></div></div>
-  </section>
-
-  <section class="chapter">
-    <div class="photo"><div class="frame"><div class="pic" style="aspect-ratio:4/5"><img src="img/story-3.jpg" alt="Kevin and Ella"></div></div></div>
-    <div class="text"><div class="script num">03</div><h2 class="display">the question</h2><p>[How the proposal happened. Where, when, and what was said.]</p></div>
-  </section>
-
-  <section class="chapter">
-    <div class="text"><div class="script num">04</div><h2 class="display">what comes next</h2><p>[A line about the wedding and why you are so happy to celebrate with everyone.]</p></div>
-    <div class="photo"><div class="frame alt"><div class="pic" style="aspect-ratio:4/5"><img src="img/story-4.jpg" alt="Kevin and Ella"></div></div></div>
-  </section>
+  <div class="script film-cap">press play &amp; turn the sound up</div>
 
   <div style="text-align:center;padding:70px 5% 0"><a class="btn" href="rsvp.html">RSVP</a></div>
 </main>
